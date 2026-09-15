@@ -1,0 +1,6 @@
+#!/bin/sh
+set -eu
+if git diff --cached --quiet -- dist; then exit 0; fi
+if ! git diff --cached --quiet -- dist/release-info.js docs/releases.json; then exit 0; fi
+node scripts/release.mjs --auto
+git add -- dist/release-info.js docs/releases.json

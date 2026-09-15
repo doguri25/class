@@ -1,0 +1,72 @@
+export const CATEGORIES={all:'전체',stationery:'문구·소모품',reading:'국어·사회',math:'수학',science:'과학',art:'미술',activity:'음악·체육',classroom:'학급·디지털'};
+// Prices and pack sizes are explicit game values, not live vendor quotations.
+const rows=[
+ ['pencils','예비 연필 12자루','stationery',3000,1,false,'pencil','국어,수학','필기구가 없는 학생이 잠시 빌려 써요.'],
+ ['erasers','지우개 12개','stationery',4000,1,false,'eraser','수학','풀이를 고치고 다시 시도할 수 있어요.'],
+ ['glue','고체풀 묶음','stationery',6000,10,true,'paintbrush','미술,즐거운 생활','모둠별 붙이기 활동 10회분.'],
+ ['scissors','둥근 끝 학습용 가위','stationery',12000,1,false,'scissors','미술,실과','학년과 사용 방법을 확인해 배부해요.'],
+ ['tape','종이테이프','stationery',5000,10,true,'circle','미술,실과','작품을 고정하고 표시하는 활동 10회분.'],
+ ['sticky','붙임쪽지','stationery',4000,10,true,'sticky-note','국어,사회,도덕','생각 모으기와 출구 질문 10회분.'],
+ ['markers','보드마커 묶음','stationery',8000,1,false,'pen-line','국어,수학','모둠 화이트보드에 생각을 기록해요.'],
+ ['paper','색종이·도화지 묶음','stationery',20000,10,true,'sheets','미술,즐거운 생활,국어,창체','그림·접기·생각 표현 활동 10회분.'],
+ ['books','학급 독서 꾸러미','reading',80000,1,false,'library-big','국어','짝 읽기와 책 소개에 활용해요.'],
+ ['wordcards','낱말·문장 카드','reading',15000,1,false,'captions','국어,영어','낱말을 묶고 문장의 뜻을 연결해요.'],
+ ['maps','고장 지도 자료','reading',18000,1,false,'map','사회','지도 기호와 생활 장소를 찾아요.'],
+ ['rolecards','역할·감정 카드','reading',12000,1,false,'message-circle','도덕,바른 생활,창체','상황의 입장과 필요한 도움을 말해요.'],
+ ['readingstands','독서 받침대','reading',24000,1,false,'book-open','국어','책을 편하게 펼쳐 두고 함께 읽어요.'],
+ ['math','수 모형 꾸러미','math',50000,1,false,'blocks','수학','묶음과 자릿값을 눈에 보이게 나타내요.'],
+ ['dice','수학 주사위 12개','math',6000,1,false,'dice-5','수학','수 조합과 계산 규칙을 탐색해요.'],
+ ['rulers','자·줄자 세트','math',10000,1,false,'ruler','수학,과학','길이를 어림하고 같은 단위로 비교해요.'],
+ ['tangram','칠교 모둠 세트','math',14000,1,false,'shapes','수학','도형을 움직이며 모양을 구성해요.'],
+ ['geoboards','도형판','math',22000,1,false,'grid-3x3','수학','변과 꼭짓점을 살펴 도형을 설명해요.'],
+ ['science','관찰 도구 세트','science',45000,1,false,'search','과학,슬기로운 생활','관찰 위치와 조건을 바꾸어 비교해요.'],
+ ['magnifiers','돋보기 6개','science',18000,1,false,'search','과학,슬기로운 생활','잎·돌·물체의 겉모습을 자세히 관찰해요.'],
+ ['specimens','식물·동물 사진 자료','science',16000,1,false,'leaf','과학','사진에 보이는 특징으로 분류해요.'],
+ ['cups','투명 관찰컵','science',9000,1,false,'cup-soda','과학','물체를 담아 관찰하고 정리해요.'],
+ ['timers','모둠 타이머','science',20000,1,false,'timer','과학,수학','같은 시간을 정해 관찰 기록을 비교해요.'],
+ ['art','모둠 미술 도구','art',35000,1,false,'palette','미술,즐거운 생활,실과','다양한 표현 재료를 골라 써요.'],
+ ['crayons','색연필 세트','art',18000,1,false,'pencil','미술,즐거운 생활','여러 색의 겹침과 느낌을 표현해요.'],
+ ['clay','찰흙 꾸러미','art',15000,6,true,'shapes','미술,즐거운 생활','덩어리와 질감을 만드는 활동 6회분.'],
+ ['yarn','꾸미기 실·천 조각','art',10000,8,true,'palette','미술,실과','촉감과 무늬를 이용하는 활동 8회분.'],
+ ['brushes','붓·물통 세트','art',16000,1,false,'paintbrush','미술','물과 색의 양을 조절해 표현해요.'],
+ ['rhythm','리듬악기 꾸러미','activity',40000,1,false,'music','음악,즐거운 생활','서로의 소리를 듣고 박을 맞춰요.'],
+ ['bells','핸드벨 모둠 세트','activity',55000,1,false,'bell','음악','자기 차례의 소리를 이어 합주해요.'],
+ ['softballs','부드러운 공 6개','activity',24000,1,false,'volleyball','체육','거리와 속도를 조절하며 협동해요.'],
+ ['cones','표시콘 12개','activity',15000,1,false,'triangle','체육','모둠별 공간과 이동 방향을 구분해요.'],
+ ['bibs','팀 조끼 묶음','activity',20000,1,false,'shirt','체육','팀과 역할을 눈에 보이게 구분해요.'],
+ ['whiteboards','모둠 화이트보드','classroom',30000,1,false,'presentation','국어,수학,사회','모든 모둠이 생각을 동시에 보여 줘요.'],
+ ['namecards','이름·역할 이름표','classroom',6000,1,false,'contact','창체,바른 생활','자리와 1인 1역을 알아보기 쉽게 표시해요.'],
+ ['bins','공용 교구 정리함','classroom',18000,1,false,'archive','창체,바른 생활','분류한 위치에 물품을 돌려놓아요.'],
+ ['tablet','공용 태블릿 대여','classroom',60000,1,false,'tablet','','학년도 동안 디지털 수업을 사용할 수 있어요.'],
+ ['headphones','공용 헤드폰','classroom',36000,1,false,'headphones','영어,음악','개별 듣기 자료를 조용히 확인해요.']
+,
+ ["indexcards","발표·질문 카드","stationery",4500,15,true,"notebook-pen","국어,사회,영어","질문과 근거를 앞뒤로 나누어 적어요."],
+ ["labels","분류 라벨 스티커","stationery",3500,15,true,"tag","수학,과학,창체","분류 기준과 보관 위치를 표시해요."],
+ ["clips","대형 집게 묶음","stationery",4000,1,false,"paperclip","국어,미술","종이 자료와 전시물을 정리해요."],
+ ["envelopes","자료 보관 봉투","stationery",5000,15,true,"mail","국어,사회","활동 결과와 학생 자료를 나누어 보관해요."],
+ ["folders","개인 활동 파일","stationery",15000,1,false,"folder","국어,사회,과학","학생이 자신의 변화와 활동 자료를 살펴요."],
+ ["measuringtape","줄자 세트","math",18000,1,false,"ruler","수학,실과","교실 물건의 길이와 거리를 재어요."],
+ ["fractionstrips","분수 띠 모형","math",16000,1,false,"squares","수학","같은 전체에서 부분의 크기를 비교해요."],
+ ["geoboard","고무줄 도형판","math",22000,1,false,"shapes","수학","꼭짓점과 변의 관계를 탐색해요."],
+ ["patternblocks","패턴 블록","math",24000,1,false,"shapes","수학","조각을 채우며 도형과 규칙을 살펴요."],
+ ["thermometer","관찰용 온도계","science",17000,1,false,"thermometer","과학","교사 안내 아래 주변 온도를 기록해요."],
+ ["droppers","물 관찰 스포이트","science",8000,1,false,"droplets","과학","물방울 크기와 흡수 모습을 비교해요."],
+ ["observationcups","뚜껑 있는 관찰 용기","science",7000,15,true,"cup-soda","과학,슬기로운 생활","씨앗과 물체를 관찰하는 활동에 사용해요."],
+ ["seedkit","씨앗 관찰 꾸러미","science",16000,10,true,"sprout","과학,슬기로운 생활","자람을 같은 위치와 시간에 관찰해요."],
+ ["aprons","미술 활동 앞치마","art",25000,1,false,"shirt","미술,즐거운 생활","활동 전후 옷과 재료를 함께 정리해요."],
+ ["finebrushes","세필붓 세트","art",12000,1,false,"paintbrush","미술","붓의 폭과 움직임에 따른 표현을 비교해요."],
+ ["coloredtissue","습자지 묶음","art",5000,12,true,"layers","미술,즐거운 생활","빛을 통과하는 재료를 겹쳐 표현해요."],
+ ["foam","붙이는 모양 재료","art",8000,12,true,"shapes","미술,즐거운 생활","형태와 배치를 바꾸어 구성해요."],
+ ["rhythmcards","리듬 카드","activity",12000,1,false,"music","음악,즐거운 생활","박과 쉼을 눈으로 확인하고 합주해요."],
+ ["ribbons","표현 활동 리본","activity",14000,1,false,"ribbon","체육,즐거운 생활","충분한 공간에서 느린 움직임을 표현해요."],
+ ["bookstands","독서대 세트","reading",32000,1,false,"book-open","국어","책과 필기 자료를 편한 위치에 놓아요."],
+ ["emotioncards","감정·도움 카드","classroom",13000,1,false,"heart-handshake","도덕,창체,바른 생활","말·그림 중 편한 방법으로 필요한 도움을 전해요."],
+ ["timer","시각 활동 타이머","classroom",22000,1,false,"timer","국어,수학,창체","남은 시간을 함께 확인하며 전환을 준비해요."]
+];
+export const GOODS=rows.map(([id,name,category,cost,pack,consumable,icon,subjects,desc])=>({id,name,category,cost,pack,consumable,icon,subjects:subjects?subjects.split(','):[],desc}));
+export const getGood=id=>GOODS.find(g=>g.id===id);
+export function inventory(state){if(!state.inventory){state.inventory={};for(const p of state.purchases){const g=getGood(p.id);if(g)state.inventory[p.id]=(state.inventory[p.id]||0)+(p.quantity||1)*g.pack;}}return state.inventory;}
+export const stock=(state,id)=>inventory(state)[id]||0;
+export function buy(state,id){const g=getGood(id);if(!g||state.budget<g.cost||!g.consumable&&(stock(state,id)>0||state.operations?.orders.some(o=>o.itemId===id&&o.remaining>0)))return false;inventory(state)[id]=stock(state,id)+g.pack;state.budget-=g.cost;state.purchases.push({id,price:g.cost,label:g.name,quantity:1,day:state.day,minute:state.minute});return g;}
+export function supports(state,subject){return GOODS.some(g=>g.subjects.includes(subject)&&stock(state,g.id)>0);}
+export function consume(state,subject){const g=GOODS.find(g=>g.consumable&&g.subjects.includes(subject)&&stock(state,g.id)>0);if(!g)return null;inventory(state)[g.id]--;return {id:g.id,name:g.name,remaining:stock(state,g.id)};}

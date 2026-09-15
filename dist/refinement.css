@@ -1,0 +1,22 @@
+.guided-input{display:grid;grid-template-columns:minmax(0,1fr);gap:7px;min-width:0;width:100%}
+.guided-input>[hidden]{display:none!important}
+.guided-choice{width:100%;min-width:0;min-height:44px;font-size:1rem;white-space:normal;line-height:1.45}
+.guided-input>small{font-size:.875rem;line-height:1.45;color:var(--muted)}
+.message-input:has(.guided-input){display:flex;align-items:flex-start}.message-input .guided-input{flex:1}.message-input .guided-choice{padding-right:24px}.message-input>button{flex:0 0 44px;min-height:44px}
+#toast{pointer-events:none;top:max(12px,calc(env(safe-area-inset-top) + 10px));bottom:auto;left:50%;right:auto;transform:translate(-50%,-12px);max-width:min(520px,calc(100vw - 28px));width:max-content;line-height:1.5;font-size:1rem;z-index:20}
+#toast.show{transform:translate(-50%,0)}
+dialog>#toast{position:fixed;top:14px;bottom:auto;max-width:min(520px,calc(100% - 24px))}
+.staff-directory{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.staff-directory article{padding:16px;background:var(--paper);border:1px solid var(--line);border-radius:14px;min-width:0}
+.staff-directory .speaker-heading{margin:0 0 10px}.staff-directory p{font-size:1rem;line-height:1.6}
+.staff-directory .buttons{margin-top:10px}.staff-directory .tag{white-space:normal}
+.staff-task{padding:15px;border:1px solid var(--line);border-radius:12px;margin:12px 0}
+@media(max-width:650px){
+ #toast{top:max(14px,calc(env(safe-area-inset-top) + 10px));bottom:auto;font-size:15px;text-align:center;max-height:24dvh;overflow:hidden}
+ .conversation-preview{order:-1;position:static;inset:auto;max-height:22dvh;margin:0;border-top:0;border-bottom:1px solid var(--line)}
+ .play-area>.room-heading{position:static;flex:0 0 auto;padding:7px 12px}
+ .play-area>.room-heading h1{font-size:18px;margin-top:2px}
+ .staff-directory{grid-template-columns:minmax(0,1fr)}
+ .guided-choice{font-size:16px}
+}
+@media(max-height:550px) and (orientation:landscape){.conversation-preview{order:-1;max-height:23dvh}.play-area>.room-heading{position:static;flex:0 0 auto;padding:5px 10px}#toast{top:10px;bottom:auto;font-size:14px}}
