@@ -19,8 +19,8 @@ test('class time only permits relevant rooms, including arrival across a period 
  }
 });
 test('subject lessons rotate through distinct contexts and retain the chosen teaching method',()=>{
- const contexts=new Set();for(const subject of Object.keys(C.SUBJECT_ROOMS)){assert.equal(C.methods(subject).length,4);for(let i=0;i<3;i++){const d=C.design(subject,i,'m2',6);contexts.add(d.title);assert.ok(d.goal);assert.equal(d.steps.length,3);assert.equal(d.choices.length,3);assert.equal(d.method,C.methods(subject)[2].name);}}
- assert.equal(contexts.size,42);const s=M.newGame();s.minute=540;assert.equal(M.finishLesson(s,'국어',1,'등장인물의 마음 토론',1,{method:'m1'}),true);assert.equal(s.progress['국어'],1);assert.equal(s.lessonResults[0].method,'m1');assert.equal(s.lessonResults[0].topic,'장면과 마음');reload(s);
+ for(let grade=1;grade<=6;grade++)for(const subject of M.subjects(grade).concat('창체')){const first=C.design(subject,0,'m2',grade),next=C.design(subject,1,'m2',grade);assert.notEqual(first.title,next.title);assert.ok(first.contentId.startsWith('g'+grade+'-'));for(const d of [first,next]){assert.ok(d.goal);assert.equal(d.steps.length,3);assert.equal(d.choices.length,3);assert.equal(d.method,C.methods(subject)[2].name);}}
+ const s=M.newGame();s.minute=540;assert.equal(M.finishLesson(s,'국어',1,'등장인물의 마음 토론',1,{method:'m1'}),true);assert.equal(s.progress['국어'],1);assert.equal(s.lessonResults[0].method,'m1');assert.equal(s.lessonResults[0].topic,'문단의 중심 생각');reload(s);
 });
 test('60 supplies: fixed prices, refillable stock, durable items and absent students',()=>{
  assert.equal(S.GOODS.length,60);assert.equal(new Set(S.GOODS.map(g=>g.id)).size,60);

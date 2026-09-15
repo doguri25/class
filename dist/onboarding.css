@@ -1,6 +1,6 @@
 /* Scoped refinements: keep full-size portraits in profiles and the roster. */
-#bubble-layer .bubble .portrait{width:22px;height:22px;min-width:22px;border-radius:5px;margin:0 6px 3px 0}
-#conversation-preview .npc-prompt .portrait{width:24px;height:24px;flex:0 0 24px;border-radius:6px;align-self:flex-start;margin-top:2px}
+#bubble-layer .bubble .portrait{width:16px;height:16px;min-width:16px;border-radius:4px;margin:0 5px 2px 0}
+#conversation-preview .npc-prompt .portrait{width:18px;height:18px;flex:0 0 18px;border-radius:4px;align-self:flex-start;margin-top:2px}
 #modal-body{overflow-anchor:none;scroll-behavior:auto}
 .setup-modal .setup-form{display:flex;flex-direction:column;gap:16px}
 .setup-modal .setup-advanced{border:1px solid var(--line);border-radius:12px;padding:10px 12px}

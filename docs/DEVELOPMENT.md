@@ -45,12 +45,13 @@ README, BETA_SCOPE, beta-notes의 현재 버전 설명을 갱신한다. 수정 �
 
 ## GitHub class 저장소 연결
 
-요청 대상은 doguri25/class이며 비공개를 기본으로 한다. 이 문서에 이름을 적거나 remote를 추가하는 것은 저장소 생성·푸시 성공이 아니다. 연결된 도구에서 저장소를 만들 수 없다면 사용자가 GitHub에서 생성하고 해당 저장소에 대한 접근을 허용해야 한다. 토큰·비밀번호를 채팅에 붙이지 않는다.
+연결 대상은 사용자가 만든 [doguri25/class](https://github.com/doguri25/class)이며 현재 공개 범위를 유지한다. beta.6 소스를 가져온 GitHub main은 f4896bb364c7e02c71b5bfd5918d37b615af44cf이고 Sites 쪽과 파일 트리는 같지만 커밋 이력이 다르다. 저장소를 새로 만들거나 README를 덮어쓰지 않는다. 토큰·비밀번호를 채팅에 붙이지 않는다.
 
-1. doguri25 계정에 class가 이미 존재하는지 확인한다. 있으면 소유·권한·기존 내용을 확인하고 덮어쓰지 않는다.
-2. 없는 경우 비공개 빈 저장소로 만든다. 이 프로젝트의 이력을 보존하려면 별도 README/라이선스 초기화는 생략한다. 라이선스 공개 범위는 사용자 결정 없이 임의 부여하지 않는다.
-3. 이 프로젝트의 기존 origin은 Sites 소스 저장소다. 그것을 바꾸지 않고 별도 github remote를 추가한다.
-4. 정상 GitHub 인증이 준비된 환경에서 현재 main의 이력을 푸시한다. 다른 이력이 있거나 보호 규칙이 걸리면 강제 푸시하지 않는다.
+1. 현재 GitHub main의 커밋과 트리를 다시 읽어 예상하지 않은 변경이 없는지 확인한다.
+2. 현재 source tree와 바뀐 파일·모드를 비교한다. 기존 이미지 blob은 재사용하고 수정 파일만 전달한다.
+3. 로컬 Git 인증이 준비된 환경은 github remote로 푸시한다. 네이티브 GitHub 도구만 가능한 환경은 Git 데이터 API로 동일 트리를 만들고 기존 원격 커밋을 부모로 새 커밋을 생성한다.
+4. 트리 SHA를 로컬 HEAD의 tree와 대조하고 main을 강제 갱신 없이 앞으로 이동한다. 브랜치가 바뀌었거나 보호 규칙에 걸리면 재확인하며 임의 강제 푸시하지 않는다.
+5. 최종 원격 main의 커밋·트리와 URL을 확인한다. Sites source commit과 GitHub commit을 별도로 기록한다.
 
 ```sh
 git remote add github https://github.com/doguri25/class.git
@@ -59,7 +60,7 @@ git rev-parse --verify HEAD
 git ls-remote github refs/heads/main
 ```
 
-이미 github remote가 있으면 추가 명령을 반복하지 말고 대상부터 확인한다. 로컬 HEAD와 원격 main의 전체 SHA가 같아야 GitHub 푸시 완료다. GitHub 인증 정보와 Sites의 저장소 한정 인증 정보는 서로 대체할 수 없다.
+이미 github remote가 있으면 추가 명령을 반복하지 말고 대상부터 확인한다. 같은 이력의 일반 Git 푸시는 전체 커밋 SHA를 대조한다. 기존의 다른 이력을 보존하는 Git 데이터 API 경로는 로컬/원격의 전체 트리 SHA 일치와 원격 부모·브랜치 갱신을 모두 확인한다. 성공 응답 없이 완료로 표시하지 않는다. GitHub 인증 정보와 Sites의 저장소 한정 인증 정보는 서로 대체할 수 없다.
 
 ## 기존 실행 사이트 배포
 
