@@ -2,7 +2,7 @@
 
 ## 프로젝트와 문서
 
-교실 타이쿤은 dist의 HTML/CSS/ES 모듈을 직접 배포하는 정적 웹 게임이다. 현재 별도 빌드·서버·외부 AI·실제 학교 메시지 연동이 필요하지 않다. Three.js 등의 동봉 자산은 dist 안의 참조 경로를 유지한다.
+오늘 우리 교실은 dist의 HTML/CSS/ES 모듈을 직접 배포하는 정적 웹 게임이다. 현재 별도 빌드·서버·외부 AI·실제 학교 메시지 연동이 필요하지 않다. Three.js 등의 동봉 자산은 dist 안의 참조 경로를 유지한다.
 
 - 최신 요구: PRD_v0.5.md. 기존 원안과 출처: PRD_v0.4.md.
 - 실제 구현/미구현/검증: BETA_SCOPE.md.
@@ -61,6 +61,14 @@ git ls-remote github refs/heads/main
 ```
 
 이미 github remote가 있으면 추가 명령을 반복하지 말고 대상부터 확인한다. 같은 이력의 일반 Git 푸시는 전체 커밋 SHA를 대조한다. 기존의 다른 이력을 보존하는 Git 데이터 API 경로는 로컬/원격의 전체 트리 SHA 일치와 원격 부모·브랜치 갱신을 모두 확인한다. 성공 응답 없이 완료로 표시하지 않는다. GitHub 인증 정보와 Sites의 저장소 한정 인증 정보는 서로 대체할 수 없다.
+
+## GitHub Pages 공개 게임
+
+공개 URL은 https://doguri25.github.io/class/ 이다. 저장소 루트의 index.html이 ./dist/로 자동 이동하고 .nojekyll은 게임 자산을 정적 파일로 유지한다. main 루트에 대한 기존 Pages 배포를 계속 사용하며 별도 외부 워크플로나 토큰을 추가하지 않는다. 게임의 importmap·CSS·모듈·삽화·문서는 상대 경로를 유지한다.
+
+푸시 뒤 같은 커밋의 pages build and deployment 실행이 성공했는지 확인한다. 루트에 게임 진입점 없이 README만 있으면 Pages가 README를 표시할 수 있다. [GitHub 공식 Pages 시작 파일 안내](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site)를 참고한다.
+
+기존 Sites와 GitHub Pages는 브라우저 출처가 달라 저장 공간을 공유하지 않는다. 일반 게임 JSON을 내보내고 새 사이트의 미리보기에서 확인한 뒤 가져온다. 게임명 변경에서도 기존 저장 키는 바꾸지 않는다.
 
 ## 기존 실행 사이트 배포
 
